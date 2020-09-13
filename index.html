@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Password Generator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-light bg-white white">
+		<a class="navbar-brand" href="#">
+			<svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-shield-lock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
+				<path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"/>
+			</svg>
+			PassGen
+		</a>
+	</nav>
+	
+	<div id="title">
+		<p>PASSWORD GENERATOR TOOL</p>
+		<h1><strong>Generate a Secure Password</strong></h1>
+		<h3>Use this tool to instantly create a random and very secure password.</h3>
+	</div>
+
+	<div id="main-wrapper">
+
+		<div id="passwordBox" class="container shadow white no-select">
+			<div id="text">
+				<span id="password"></span>
+				<span id="passphrase"></span>
+			</div>
+			<div id="icons">
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clipboard" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="copyPass" data-toggle="tooltip" data-placement="top" title="Copy Password">
+					<path fill-rule="evenodd" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+					<path fill-rule="evenodd" d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+				</svg>
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="regenerate" data-toggle="tooltip" data-placement="top" title="Generate">
+					<path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+					<path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+				</svg>		
+			</div>
+		</div>
+
+		<div id="customize" class="container white no-select">
+			<h3 class="no-select"><strong>Customize your <span id="pass">password</span>/<span id="phrase" class="notSelected">passphrase</span></strong></h3>
+			<hr>
+			<div id="customize-inner">
+				<div id="passwordLength">
+					<p>Password Length</p>
+					<div id="bar">
+						<p id="charValue" class="slider-box"></p>
+						<p id="numWords" class="slider-box"></p>
+						<input type="range" min="6" max="50" value="10" class="slider" id="charCount">
+						<input type="range" min="3" max="13" value="4" class="slider" id="wordCount">
+					</div>
+				</div>
+				<div id="options">
+					<!-- Password -->
+					<div>
+						<input type="checkbox" id="lower" name="lower" class="passwordBox" checked>
+						<label for="lower">a-z</label><br>
+						<input type="checkbox" id="upper" name="upper" class="passwordBox">
+						<label for="upper">A-Z</label><br>
+						<input type="checkbox" id="numbers" name="numbers" class="passwordBox">
+						<label for="numbers">0-9</label><br>
+						<input type="checkbox" id="symbols" name="symbols" class="passwordBox">
+						<label for="symbols">!@#$%^&*</label><br>		
+					</div>
+					<!-- Passphrase -->
+					<div id="phraseOptions">
+						<!-- <label for="wordSeperator">Word Seperator: </label> -->
+						<input type="text" id="wordSeperator" name="wordSeperator" value="-"  style="display:none;">	
+						<input type="checkbox" id="capitalize" name="capitalize" class="passphraseBox">
+						<label for="capitalize">Capitalize</label><br>
+						<input type="checkbox" id="number" name="number" class="passphraseBox">
+						<label for="number">Add Number</label>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
